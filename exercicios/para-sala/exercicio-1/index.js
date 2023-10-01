@@ -1,7 +1,7 @@
 import { Driver } from './classes/Driver.js';
 import { Passenger } from './classes/Passenger.js';
 
-const motorista0 = new Driver('Maria', 13);
+// const motorista0 = new Driver('Maria', 13);
 const motorista1 = new Driver('Babi', 38);
 const motorista2 = new Driver('Jose', 23);
 
