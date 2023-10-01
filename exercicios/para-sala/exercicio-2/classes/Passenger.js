@@ -1,8 +1,9 @@
 export class Passenger {
-	name;
-	age;
-	password;
-	amountSpent = 0;
+  name;
+  age;
+  password;
+  amountSpent = 0;
+
 
 	static passengers = [];
 
@@ -40,3 +41,4 @@ export class Passenger {
 		console.log(`A média da idade das passageiras é ${ageAverage}.`);
 	}
 }
+

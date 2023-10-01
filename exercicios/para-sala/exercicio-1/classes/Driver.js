@@ -1,4 +1,3 @@
-export class Driver {
   name;
   age;
   numberOfRides = 0;
@@ -17,4 +16,3 @@ export class Driver {
     this.numberOfRides++;
     this.amountEarned += amount;
   }
-}

@@ -25,4 +25,3 @@ export class Passenger {
     this.amountSpent -= amount;
     driver.runDrive(amount);
   }
-}

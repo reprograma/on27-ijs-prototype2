@@ -43,4 +43,12 @@ export class Driver {
 		const ageAverage = (ageSum / totalOfDrivers).toFixed(2);
 		console.log(`A média de idade das motoristas é de: ${ageAverage}`);
 	}
+
+	get amountEarned() {
+		return this.#amountEarned;
+	}
+
+	set amountEarned(amount) {
+		this.#amountEarned = amount;
+	}
 }
