@@ -4,40 +4,41 @@ export class Passenger {
   password;
   amountSpent = 0;
 
-  static passengers = [];
 
-  constructor(name, age, password) {
-    this.name = name;
-    this.age = age;
-    this.password = password;
-    this.constructor.passengers.push({ name: name, age: age });
-  }
+	static passengers = [];
 
-  requestDrive(driver, amount, password) {
-    if (!(driver instanceof Driver)) {
-      console.log("Motorista inválido!");
-      return;
-    }
-    if (password !== this.password) {
-      console.log(`${this.name}, sua senha está incorreta!`);
-      return;
-    }
-    this.amountSpent -= amount;
-    driver.runDrive(amount);
-  }
-  static numberOfPassengers() {
-    console.log(
-      `O total de passageiras cadastradas é de : ${this.passengers.length}`
-    );
-  }
+	constructor(name, age, password) {
+		this.name = name;
+		this.age = age;
+		this.password = password;
+		Passenger.passengers.push({ name, age })
+		// this.constructor.passengers.push({ name, age }) // Podemos utilizar também dessa maneira
+	}
 
-  static ageAverage() {
-    const totalOfPassengers = this.passengers.length;
+	requestDrive(driver, amount, password) {
+		if (!(driver instanceof Driver)) {
+			console.log('Motorista inválido!');
+			return;
+		}
+		if (password !== this.password) {
+			console.log(`${this.name}, sua senha está incorreta!`);
+			return;
+		}
+		this.amountSpent -= amount;
+		driver.runDrive(amount);
+	}
 
-    if (totalOfPassengers === 0) return;
+	static numberOfPassengers() {
+		console.log(`A quantidade de passageiras cadastradas é ${Passenger.passengers.length}`)
+	}
 
-    const ageSum = this.passengers.reduce((total, next) => total + next.age, 0);
-    const ageAverage = (ageSum / totalOfPassengers).toFixed(2);
-    console.log(`A média das idades das passageiras é de: ${ageAverage}`);
-  }
+	static ageAverage() {
+		const totalOfPassengers = Passenger.passengers.length;
+		if(totalOfPassengers === 0) return;
+
+		const sumOfAges = Passenger.passengers.reduce((total, passenger) => total + passenger.age, 0);
+		const ageAverage = (sumOfAges/totalOfPassengers).toFixed(2);
+		console.log(`A média da idade das passageiras é ${ageAverage}.`);
+	}
 }
+

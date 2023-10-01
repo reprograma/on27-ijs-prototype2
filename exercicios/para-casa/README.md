@@ -38,26 +38,16 @@ bank1.transferTax = 0.02
 console.log(bank1.transferTax); // 0.02
 ```
 
-### 2 - Person
-Defina uma classe `Person` com as seguintes características:
-
+### 2 - Client
+Defina ainda uma classe `Client`.
 A classe deve possuir as seguintes propriedades:
+
 - [ ] `name`
   - Nome, recebido por parâmetro durante a instanciação.
 
 - [ ] `CPF`
   - CPF, recebido por parâmetro durante a instanciação.
   - Deve ser um parâmetro privado.
-
-Exemplo de um objeto Person:
-```javascript
-const person1 = new Person('Maria', 12345678900); // Instanciação de um objeto Person.
-console.log(person1); // { name: 'Maria' }
-```
-
-### 3 - Client
-Defina ainda uma classe `Client`, herdando de `Person`.
-A classe deve possuir as seguintes propriedades:
 
 - [ ] `banks`: Uma array de bancos ao qual é associada 
   - Deve ser inicializado vazio.
@@ -88,7 +78,7 @@ client1.removeBank(bank1); // Banco 100 removido da cliente Maria
 console.log(client1); // { name: 'Maria', banks: [] }
 ```
 
-### 4 - BankAccount
+### 3 - BankAccount
 Por fim, defina uma classe para um objeto `BankAccount`.
 A conta deve possuir as seguintes propriedades:
 - [ ] `client`: Cliente a qual essa conta pertence

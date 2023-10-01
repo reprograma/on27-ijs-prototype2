@@ -1,39 +1,51 @@
 import { Driver } from "./Driver.js";
+
+
 export class Passenger {
-  name;
-  age;
-  #password;
-  #amountSpent = 0;
+	name;
+	age;
+	#password;
+	#amountSpent = 0;
 
   static passengers = [];
 
-  constructor(name, age, password) {
-    this.name = name;
-    this.age = age;
-    this.#password = password;
+	constructor(name, age, password) {
+		this.name = name;
+		this.age = age;
+		this.#password = password;
     this.constructor.passengers.push({ name: name, age: age });
-  }
+	}
 
-  requestDrive(driver, amount, password) {
-    if (!(driver instanceof Driver)) {
-      console.log("Motorista inválido!");
-      return;
-    }
-    if (password !== this.#password) {
-      console.log(`${this.name}, sua senha está incorreta!`);
-      return;
-    }
-    this.#amountSpent -= amount;
-    driver.runDrive(amount);
-  }
+	get amountSpent() {
+		return this.#amountSpent;
+	}
 
-  changePassword(oldPassword, newPassword) {
-    if (oldPassword === this.#password) {
-      this.#password = newPassword;
-    } else {
-      console.log("Senha digitada inválida");
-    }
-  }
+	set amountSpent(newAmountSpent) {
+		this.#amountSpent = newAmountSpent;
+	}
+
+	changePassword(oldPassword, newPassword) {
+		if(oldPassword === this.#password) {
+			this.#password = newPassword;
+			console.log('Senha alterada com sucesso.');
+		} else {
+			console.log('A sua senha atual não corresponde.');
+		}
+	}
+
+	requestDrive(driver, amount, password) {
+		if (!(driver instanceof Driver)) {
+			console.log('Motorista inválido!');
+			return;
+		}
+		if (password !== this.#password) {
+			console.log(`${this.name}, sua senha está incorreta!`);
+			return;
+		}
+		this.#amountSpent -= amount;
+		driver.runDrive(amount);
+	}
+
 
   static numberOfPassengers() {
     console.log(
@@ -55,7 +67,5 @@ export class Passenger {
     return this.#amountSpent;
   }
 
-  set amountSpent(amount) {
-    this.#amountSpent = amount;
-  }
+
 }
