@@ -2,18 +2,18 @@
 ### 1 - Bank
 Defina uma classe para um objeto `Bank`.
 O banco deve possuir as seguintes propriedades:
-- [ ] `bankCode`: Código do banco
+- [OK] `bankCode`: Código do banco
   - Número do banco, recebido por parâmetro durante a instanciação.
 
-- [ ] `bankName`: Nome do banco
+- [OK] `bankName`: Nome do banco
   - Recebido por parâmetro durante a instanciação.
 
-- [ ] `transferTax`: Taxa de transferência para outros bancos
-  - Recebido por parâmetro durante a instanciação.
-  - Deve ser um parâmetro privado.
+- [OK] `transferTax`: Taxa de transferência para outros bancos
+  - Recebido por parâmetro durante a instanciação. 
+  - Deve ser um parâmetro privado. OK
   - Deve ter um método get e um método set.
 
-- [ ] `createdBanks`: Bancos criados
+- [OK] `createdBanks`: Bancos criados
   - Propriedade **estática**, sendo ela uma array de objetos que é inicialmente vazia e é atualizada a cada vez que um novo banco é criado, contendo:
     - `Código do banco criado`
     - `Quantidade de clientes que esse banco possui`
@@ -42,10 +42,10 @@ console.log(bank1.transferTax); // 0.02
 Defina uma classe `Person` com as seguintes características:
 
 A classe deve possuir as seguintes propriedades:
-- [ ] `name`
+- [OK] `name`
   - Nome, recebido por parâmetro durante a instanciação.
 
-- [ ] `CPF`
+- [OK] `CPF`
   - CPF, recebido por parâmetro durante a instanciação.
   - Deve ser um parâmetro privado.
 

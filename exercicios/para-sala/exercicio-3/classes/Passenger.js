@@ -1,16 +1,17 @@
+import { Driver } from "./Driver.js";
 export class Passenger {
 	name;
 	age;
-	password;
-	amountSpent = 0;
+	#password; // #transforma em atributo privado e impede de ser acessado fora da classe; obrigatoriamente tem que ser declarado antes de ser usado no atributo
+	#amountSpent = 0;
 
   static passengers = [];
 
 	constructor(name, age, password) {
 		this.name = name;
 		this.age = age;
-		this.password = password;
-    this.constructor.passengers.push({ name: name, age: age });
+		this.#password = password;
+    	this.constructor.passengers.push({ name: name, age: age });
 	}
 
 	requestDrive(driver, amount, password) {
@@ -18,15 +19,15 @@ export class Passenger {
 			console.log('Motorista inválido!');
 			return;
 		}
-		if (password !== this.password) {
+		if (password !== this.#password) {
 			console.log(`${this.name}, sua senha está incorreta!`);
 			return;
 		}
-		this.amountSpent -= amount;
+		this.#amountSpent -= amount;
 		driver.runDrive(amount);
 	}
 
-  static numberOfPassengers() {
+  	static numberOfPassengers() {
 		console.log(`O total de passageiras cadastradas é: ${this.passengers.length}`);
 	}
 
@@ -39,4 +40,23 @@ export class Passenger {
 		const ageAverage = (ageSum / totalOfPassengers).toFixed(2);
 		console.log(`A média de idade das passageiras é de: ${ageAverage}`);
 	}
+
+	// get e set são palavras reservadas; get não recebe nenhum parametro set pode receber apenas um parametro, ambos podem receber condicionais 
+
+	get newAmountSpent(){
+		return this.#amountSpent;
+	}
+	set amountSpent(newAmountSpent){
+		return this.#amountSpent = newAmountSpent;
+	}
+
+	changeOfPassword(oldPassword, newPassword){
+		if (oldPassword === this.#password){
+			this.#password = newPassword;
+			console.log('Senha alterada.')
+		} else{
+			console.log('Senha atual não corresponde.')
+		}
+	}
 }
+

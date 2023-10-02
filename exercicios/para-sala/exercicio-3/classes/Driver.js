@@ -2,7 +2,7 @@ export class Driver {
 	name;
 	age;
 	numberOfRides = 0;
-	amountEarned = 0;
+	#amountEarned = 0;
 
   static drivers = [];
 
@@ -14,15 +14,15 @@ export class Driver {
 		}
 		this.name = name;
 		this.age = age;
-    this.constructor.drivers.push({ name: name, age: age });
+    	this.constructor.drivers.push({ name: name, age: age });
 	}
 
 	runDrive(amount) {
-		this.amountEarned += amount;
+		this.#amountEarned += amount;
 		this.numberOfRides++;
 	}
 
-  static numberOfDrivers() {
+  	static numberOfDrivers() {
 		console.log(`O total de motoristas cadastradas é: ${this.drivers.length}`);
 	}
 
@@ -34,5 +34,13 @@ export class Driver {
 		const ageSum = this.drivers.reduce((total, next) => total + next.age, 0);
 		const ageAverage = (ageSum / totalOfDrivers).toFixed(2);
 		console.log(`A média de idade das motoristas é de: ${ageAverage}`);
+	}
+
+	get amountEarned(){
+		return this.#amountEarned;
+	}
+
+	set amountEarned(amountEarned){
+		this.#amountEarned = amountEarned;
 	}
 }
