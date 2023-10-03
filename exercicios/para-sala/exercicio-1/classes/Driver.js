@@ -5,11 +5,11 @@ export class Driver {
   amountEarned = 0;
 
   constructor(name, age) {
-    if(age >= 18) {
+    if (age >= 18) {
       this.name = name;
       this.age = age;
     } else {
-      throw "Você precisa ter 18 anos ou mais para ser motorista."
+      throw "Você precisa ter 18 anos ou mais para ser motorista.";
     }
   }
 

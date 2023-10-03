@@ -1,5 +1,6 @@
 import { Driver } from "./Driver.js";
 
+
 export class Passenger {
 	name;
 	age;
@@ -45,17 +46,26 @@ export class Passenger {
 		driver.runDrive(amount);
 	}
 
+
   static numberOfPassengers() {
-		console.log(`O total de passageiras cadastradas é: ${this.passengers.length}`);
-	}
+    console.log(
+      `O total de passageiras cadastradas é: ${this.passengers.length}`
+    );
+  }
 
-	static ageAverage() {
-		const totalOfPassengers = this.passengers.length;
+  static ageAverage() {
+    const totalOfPassengers = this.passengers.length;
 
-    if(totalOfPassengers === 0) return;
+    if (totalOfPassengers === 0) return;
 
-		const ageSum = this.passengers.reduce((total, motorista) => total + motorista.age, 0);
-		const ageAverage = (ageSum / totalOfPassengers).toFixed(2);
-		console.log(`A média de idade das passageiras é de: ${ageAverage}`);
-	}
+    const ageSum = this.passengers.reduce((total, next) => total + next.age, 0);
+    const ageAverage = (ageSum / totalOfPassengers).toFixed(2);
+    console.log(`A média de idade das passageiras é de: ${ageAverage}`);
+  }
+
+  get amountSpent() {
+    return this.#amountSpent;
+  }
+
+
 }

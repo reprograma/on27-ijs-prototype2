@@ -1,8 +1,9 @@
 export class Driver {
-	name;
-	age;
-	numberOfRides = 0;
-	amountEarned = 0;
+  name;
+  age;
+  numberOfRides = 0;
+  amountEarned = 0;
+
 
 	static drivers = [];
 
