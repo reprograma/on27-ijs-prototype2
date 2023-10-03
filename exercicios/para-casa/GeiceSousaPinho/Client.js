@@ -18,16 +18,16 @@ export class Client {
                 return
             } else {
                 this.banks.push(bank);
-                bank.clients++;
+                Bank.clients++; 
             }
         }
     }
     
     removeBank(bank){
         if (bank instanceof Bank){
-            const indexBankDelete = this.banks.indexOf(bank)
+            const indexBankDelete = this.banks.indexOf(bank) // a posicçãod dentro do array
             
-            if (indexBankDelete === 0) {
+            if (indexBankDelete === -1) {
                 console.log(`O banco ${bank} não está associado ao cliente.`)
                 return
             }
@@ -38,3 +38,12 @@ export class Client {
     }
 }
 
+// const client1 = new Client('Maria', 123);
+// const client2 = new Client('Geice', 321);
+
+// client1.addBank(bank1); 
+// client1.addBank(bank2);
+
+// console.log(client1); 
+
+// export { client1, client2, Client }

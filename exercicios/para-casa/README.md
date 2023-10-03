@@ -59,16 +59,16 @@ console.log(person1); // { name: 'Maria' }
 Defina ainda uma classe `Client`, herdando de `Person`.
 A classe deve possuir as seguintes propriedades:
 
-- [ ] `banks`: Uma array de bancos ao qual é associada 
+- [OK] `banks`: Uma array de bancos ao qual é associada 
   - Deve ser inicializado vazio.
 
 Como métodos da classe `Client`, temos:
-- [ ] `addBank(bank)`: associa um banco a esse cliente.
+- [OK] `addBank(bank)`: associa um banco a esse cliente.
   - O parâmetro `bank` deve obrigatoriamente ser do tipo `Bank`.
   - Verifique se o cliente já tem esse banco associado a ele. Se tiver, retorne uma mensagem e não adicione novamente.
   - Lembrar de aumentar a quantidade de clientes que esse banco possui. 
 
-- [ ] `removeBank(bank)`: desassocia um banco a esse cliente.
+- [OK] `removeBank(bank)`: desassocia um banco a esse cliente.
   - O parâmetro `bank` deve obrigatoriamente ser do tipo `Bank`.
   - Verifique se o cliente tem esse banco associado a ele. Se não tiver, retorne uma mensagem e termine a execução da função.
   - Lembrar de diminuir a quantidade de clientes que esse banco possui. 
@@ -91,34 +91,34 @@ console.log(client1); // { name: 'Maria', banks: [] }
 ### 4 - BankAccount
 Por fim, defina uma classe para um objeto `BankAccount`.
 A conta deve possuir as seguintes propriedades:
-- [ ] `client`: Cliente a qual essa conta pertence
+- [OK] `client`: Cliente a qual essa conta pertence
   - O parâmetro deve obrigatoriamente ser do tipo `Client`.
   - Recebido por parâmetro durante a instanciação.
 
-- [ ] `Bank`: Banco
+- [OK] `Bank`: Banco
   - O parâmetro deve obrigatoriamente ser do tipo `Bank`.
   - A conta só pode ser criada caso a pessoa seja cliente desse banco.
   - Recebido por parâmetro durante a instanciação.
 
-- [ ] `accountNumber`: Número da conta
+- [OK] `accountNumber`: Número da conta
   - Recebido por parâmetro durante a instanciação.
   
-- [ ] `agencyNumber`: Número da agência bancária
+- [OK] `agencyNumber`: Número da agência bancária
   - Recebido por parâmetro durante a instanciação.
   
-- [ ] `balance`: O saldo
+- [OK] `balance`: O saldo
   - Deve ser inicializado com 0.
   - Deve ser um parâmetro privado.
   - Deve ter um método get.
 
 A classe `BankAccount` possui os seguintes métodos:
-- [ ] `credit(amount)`: adiciona o valor especificado ao montante.
+- [OK] `credit(amount)`: adiciona o valor especificado ao montante.
   - Imprima na console o resultado.
 
-- [ ] `debit(amount)`: subtrai o valor especificado do montante.
+- [OK] `debit(amount)`: subtrai o valor especificado do montante.
   - Imprima na console o resultado.
 
-- [ ] `transferTo(anotherAccount, amount)`: transfere o valor especificado desta conta para a outra conta.
+- [OK] `transferTo(anotherAccount, amount)`: transfere o valor especificado desta conta para a outra conta.
   - O parâmetro `anotherAccount` deve obrigatoriamente ser do tipo `BankAccount`.
   - Caso não haja valor suficiente para a operação, ela deve retornar uma mensagem para o usuário.
   - Caso a transferência seja para um banco diferente do cliente que está realizando, utilize a taxa do banco de origem.
