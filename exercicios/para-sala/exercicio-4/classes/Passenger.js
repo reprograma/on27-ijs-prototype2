@@ -43,7 +43,7 @@ export class Passenger {
 
     if(totalOfPassengers === 0) return;
 
-		const ageSum = this.passengers.reduce((total, next) => total + next.age, 0);
+		const ageSum = this.passengers.reduce((total, motorista) => total + motorista.age, 0);
 		const ageAverage = (ageSum / totalOfPassengers).toFixed(2);
 		console.log(`A média de idade das passageiras é de: ${ageAverage}`);
 	}

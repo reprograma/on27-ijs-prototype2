@@ -31,11 +31,14 @@ O que veremos na aula de hoje?
 
 - [Conteúdo](#conteúdo)
 
-  - [Recaptulando](#recaptulando)
+  - [Recapitulando](#recapitulando)
   - [ES6 Instantiation](#es6-instantiation)
-  	- [Métodos e propriedades estáticas](#métodos-e-propriedades-estáticas)
+  - [Métodos e propriedades estáticas](#métodos-e-propriedades-estáticas)
+
+- [Modificadores de acesso](#modificadores-de-acesso)
+
+- [Extra](#extra)
 	- [Herança](#heran%C3%A7a)
-	- [Modificadores de acesso](#modificadores-de-acesso)
 
 - [Exercícios](#exercícios)
 - [Material da aula](#material-da-aula)
@@ -44,7 +47,7 @@ O que veremos na aula de hoje?
 
 # Conteúdo
 
-## Recaptulando...
+## Recapitulando...
 
 Vimos anteriormente algumas maneiras de criar funções construtoras e instanciar objetos através delas.
 
@@ -487,6 +490,7 @@ class User {
 
 #### → Vamos aplicar? [Exercício 3](/exercicios/para-sala/exercicio-3)
 
+## Extra
 ### Herança
 
 A herança permite definir uma classe que recebe todas as funcionalidades de uma classe pai e permite adicionar mais.
