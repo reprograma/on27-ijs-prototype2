@@ -2,18 +2,18 @@
 ### 1 - Bank
 Defina uma classe para um objeto `Bank`.
 O banco deve possuir as seguintes propriedades:
-- [ ] `bankCode`: Código do banco
+- [x] `bankCode`: Código do banco
   - Número do banco, recebido por parâmetro durante a instanciação.
 
-- [ ] `bankName`: Nome do banco
+- [x] `bankName`: Nome do banco
   - Recebido por parâmetro durante a instanciação.
 
-- [ ] `transferTax`: Taxa de transferência para outros bancos
+- [x] `transferTax`: Taxa de transferência para outros bancos
   - Recebido por parâmetro durante a instanciação.
   - Deve ser um parâmetro privado.
   - Deve ter um método get e um método set.
 
-- [ ] `createdBanks`: Bancos criados
+- [x] `createdBanks`: Bancos criados
   - Propriedade **estática**, sendo ela uma array de objetos que é inicialmente vazia e é atualizada a cada vez que um novo banco é criado, contendo:
     - `Código do banco criado`
     - `Quantidade de clientes que esse banco possui`
@@ -42,23 +42,23 @@ console.log(bank1.transferTax); // 0.02
 Defina ainda uma classe `Client`.
 A classe deve possuir as seguintes propriedades:
 
-- [ ] `name`
+- [x] `name`
   - Nome, recebido por parâmetro durante a instanciação.
 
-- [ ] `CPF`
+- [x] `CPF`
   - CPF, recebido por parâmetro durante a instanciação.
   - Deve ser um parâmetro privado.
 
-- [ ] `banks`: Uma array de bancos ao qual é associada 
+- [x] `banks`: Uma array de bancos ao qual é associada 
   - Deve ser inicializado vazio.
 
 Como métodos da classe `Client`, temos:
-- [ ] `addBank(bank)`: associa um banco a esse cliente.
+- [x] `addBank(bank)`: associa um banco a esse cliente.
   - O parâmetro `bank` deve obrigatoriamente ser do tipo `Bank`.
   - Verifique se o cliente já tem esse banco associado a ele. Se tiver, retorne uma mensagem e não adicione novamente.
   - Lembrar de aumentar a quantidade de clientes que esse banco possui. 
 
-- [ ] `removeBank(bank)`: desassocia um banco a esse cliente.
+- [x] `removeBank(bank)`: desassocia um banco a esse cliente.
   - O parâmetro `bank` deve obrigatoriamente ser do tipo `Bank`.
   - Verifique se o cliente tem esse banco associado a ele. Se não tiver, retorne uma mensagem e termine a execução da função.
   - Lembrar de diminuir a quantidade de clientes que esse banco possui. 
@@ -81,7 +81,7 @@ console.log(client1); // { name: 'Maria', banks: [] }
 ### 3 - BankAccount
 Por fim, defina uma classe para um objeto `BankAccount`.
 A conta deve possuir as seguintes propriedades:
-- [ ] `client`: Cliente a qual essa conta pertence
+- [x] `client`: Cliente a qual essa conta pertence
   - O parâmetro deve obrigatoriamente ser do tipo `Client`.
   - Recebido por parâmetro durante a instanciação.
 
@@ -90,31 +90,31 @@ A conta deve possuir as seguintes propriedades:
   - A conta só pode ser criada caso a pessoa seja cliente desse banco.
   - Recebido por parâmetro durante a instanciação.
 
-- [ ] `accountNumber`: Número da conta
+- [x] `accountNumber`: Número da conta
   - Recebido por parâmetro durante a instanciação.
   
-- [ ] `agencyNumber`: Número da agência bancária
+- [x] `agencyNumber`: Número da agência bancária
   - Recebido por parâmetro durante a instanciação.
   
-- [ ] `balance`: O saldo
+- [x] `balance`: O saldo
   - Deve ser inicializado com 0.
   - Deve ser um parâmetro privado.
   - Deve ter um método get.
 
 A classe `BankAccount` possui os seguintes métodos:
-- [ ] `credit(amount)`: adiciona o valor especificado ao montante.
+- [x] `credit(amount)`: adiciona o valor especificado ao montante.
   - Imprima na console o resultado.
 
-- [ ] `debit(amount)`: subtrai o valor especificado do montante.
+- [x] `debit(amount)`: subtrai o valor especificado do montante.
   - Imprima na console o resultado.
 
-- [ ] `transferTo(anotherAccount, amount)`: transfere o valor especificado desta conta para a outra conta.
+- [x] `transferTo(anotherAccount, amount)`: transfere o valor especificado desta conta para a outra conta.
   - O parâmetro `anotherAccount` deve obrigatoriamente ser do tipo `BankAccount`.
   - Caso não haja valor suficiente para a operação, ela deve retornar uma mensagem para o usuário.
   - Caso a transferência seja para um banco diferente do cliente que está realizando, utilize a taxa do banco de origem.
   - Imprima na console o resultado.
 
-- [ ] `closeAccount()`: encerra a conta.
+- [x] `closeAccount()`: encerra a conta.
   - Caso a conta possua saldo não é possível encerrá-la.
   - Imprima na console o resultado.
 
