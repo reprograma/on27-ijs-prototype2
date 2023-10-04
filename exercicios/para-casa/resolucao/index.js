@@ -1,7 +1,7 @@
 //exercicios feitos pela profa aqui
-import { Bank, bank1, bank2 } from './classes/Bank.js';
-import { BankAccount } from './classes/BankAccount.js';
-import { client1, client2 } from './classes/Client.js';
+import { Bank, bank1, bank2 } from "./veronica-paranhos/classes/Bank.js";
+import { BankAccount } from "./veronica-paranhos/classes/BanksAccount.js";
+import { client1, client2 } from "./veronica-paranhos/classes/Client.js";
 
 client1.addBank(bank1); // Banco 100 adicionado à cliente Maria
 client1.addBank(bank2); // Banco 200 adicionado à cliente Maria
