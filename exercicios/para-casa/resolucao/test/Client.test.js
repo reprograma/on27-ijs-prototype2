@@ -10,32 +10,32 @@ describe("Client class", () => {
     client = new Client("Maria", 123);
   });
 
-  test("Client should be created with correct properties", () => {
+  test("Cliente deve ser criado com as propriedades corretas", () => {
     expect(client.name).toBe("Maria");
     expect(client.cpf).toBe(123);
     expect(client.banks).toEqual([]);
   });
 
-  test("AddBank method should associate a bank with the client", () => {
+  test("AddBank deve ser associado com o banco do cliente correspondente", () => {
     client.addBank(bank);
     expect(client.banks).toContain(bank.bankName);
   });
 
-  test("AddBank method should not associate the same bank twice", () => {
+  test("AddBank nao deve ser associado a bancos diferentes ou adicionado o nome 2x", () => {
     client.addBank(bank);
     client.addBank(bank);
     expect(client.banks).toEqual([bank.bankName]);
   });
 
-  test("RemoveBank method should disassociate a bank from the client", () => {
+  test("RemoveBank deve desassociar um banco de um cliente", () => {
     client.addBank(bank);
     client.removeBank(bank);
     expect(client.banks).toEqual([]);
   });
 
-  test("RemoveBank method should handle banks not associated with the client", () => {
+  test("RemoveBank nao deve associar banco ao cliente", () => {
     const anotherBank = new Bank(200, "AnotherBank", 0.1);
-    client.removeBank(anotherBank); // Trying to remove a bank not associated with the client
+    client.removeBank(anotherBank); 
     expect(client.banks).toEqual([]);
   });
 });
