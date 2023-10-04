@@ -29,5 +29,8 @@ export class Client {
     console.log(`O cliente foi removido do banco ${bank.bankName}.`);
     Bank.createdBanks.find((qty) => qty.bankCode === bank.bankCode).qtdClients--;
   }
-
 }
+
+export const client1 = new Client('Maria', 123);
+export const client2 = new Client('Paulo', 566);
+export const client3 = new Client('Vinicius', 6887);
