@@ -1,4 +1,4 @@
-export class Bank {
+class Bank {
   bankCode;
   bankName;
   #transferTax;
@@ -21,7 +21,13 @@ export class Bank {
   }
 }
 
-const bank1 = new Bank(248, 'MeBank', 0.02);
-console.log(bank1);
-const bank2 = new Bank(249, 'MelBank', 0.01);
-console.log(Bank.createdBanks);
+const bank1 = new Bank(111, 'MeBank', 0.02);
+const bank2 = new Bank(222, 'LinaBank', 0.01);
+
+// console.log(bank1);
+// console.log(Bank.createdBanks);
+// console.log(bank1.transferTax);
+// bank1.transferTax = 0.03
+// console.log(bank1.transferTax);
+
+export { Bank, bank1, bank2 }
