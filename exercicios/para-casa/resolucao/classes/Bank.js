@@ -36,23 +36,11 @@ const bank1 =  new Bank(200, 'ProgBank', 0.08);
 console.log(bank1);
 console.log(Bank.createdBanks);
 console.log(bank1.transferTax);
-bank1.tranferTax = 0.02;
+bank1.transferTax = 0.02;
 console.log(bank1.transferTax);
 bank1.addClient();
 console.log(Bank.createdBanks);
-//     static numberOfClients(){
-//         const totalOfClients = this.createdBanks.length;
-//         console.log(`O total de clientes é: ${this.createdBanks.length}`)
 
-//         if(totalOfClients === 0) return;
-//         }
-
-// }
-
-// export class Bank {
-//     bankCode;
-//     bankName;
-//     #transferTax;
-//     #numberOfClients;
+export {bank1}
 
 // }

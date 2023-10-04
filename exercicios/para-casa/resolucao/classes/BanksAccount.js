@@ -1,9 +1,10 @@
 import { Bank }  from "./Bank.js"
+import { bank1 } from "./Bank.js"
 import { Client } from "./Client.js"
 
 // FALTA ATUALIZAR OS CLIENTES NOS BANCOS - VER EXEMPLO DO EXERCÍCIO 8 Q A PROF FEZ E FAZER OS TESTES
 
-class BankAccount {
+export class BanksAccount {
     client
     bank
     accountNumber
@@ -60,7 +61,7 @@ class BankAccount {
     }
 
     transferTo(anotherAccount, amount) {
-        if(!(anotherAccount instanceof BankAccount)) {
+        if(!(anotherAccount instanceof BanksAccount)) {
             console.log("Conta inválida!")
         }
 
@@ -75,7 +76,7 @@ class BankAccount {
             this.debit(amount)
         }
         anotherAccount.credit(amount)
-        console.log(`Transferência realizada com sucesso. O seu saldo atual é de R$ ${this.balance} e o saldo da consta destino é de R$ ${anotherAccount.balance}`)
+        console.log(`Transferência realizada com sucesso. O seu saldo atual é de R$ ${this.#balance} e o saldo da consta destino é de R$ ${anotherAccount.balance}`)
     }
 
     //cashwithdrawal(amount) {
@@ -83,7 +84,7 @@ class BankAccount {
     //}
 
     closeAccount(){
-        if(!(this.#balance == 0)) {
+        if(this.#balance > 0) {
             console.log("Não é possível encerrar a conta, pois você ainda tem saldo!")
         } else {
             console.log("Conta encerrada com sucesso!")

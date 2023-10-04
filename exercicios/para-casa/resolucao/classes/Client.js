@@ -1,4 +1,4 @@
-import { Bank } from "./Bank.js"
+import { Bank , bank1 } from "./Bank.js"
 export class Client{
     
         name
