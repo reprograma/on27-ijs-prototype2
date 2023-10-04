@@ -1,8 +1,8 @@
 import { Bank } from "./Bank.js";
 
 export class Client {
+    name; // a ordem colocada aqui interfere em como aparece no console
     banks;
-    name;
     #CPF;
 
     constructor(name, CPF) {
@@ -38,12 +38,27 @@ export class Client {
     }
 }
 
-// const client1 = new Client('Maria', 123);
-// const client2 = new Client('Geice', 321);
+// const client1 = new Client('Maria das Dores', 123);
+// const client2 = new Client('Geice Conceição', 321);
 
+// const bankGeice = new Bank(100, 'GeiceBank', 10); 
+// const bankLua = new Bank(200, 'LuaBank', 20); 
+// const bank1 = new Bank(800, 'BankBank', 5);
+
+// client2.addBank(bankGeice); 
+// client2.addBank(bank1); 
 // client1.addBank(bank1); 
-// client1.addBank(bank2);
+// client1.addBank(bankLua);
 
 // console.log(client1); 
+// console.log(`CPF: ${client1.cpf}`);
+// console.log()
+// console.log(client2); 
+// console.log(`CPF: ${client2.cpf}`);
 
+// client2.removeBank(bank1); 
+// client1.removeBank(bank1); 
+
+// console.log(client1); 
+// console.log(client2); 
 // export { client1, client2, Client }

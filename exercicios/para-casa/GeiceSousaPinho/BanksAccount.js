@@ -15,7 +15,6 @@ export class BankAccount{
             this.accountNumber = accountNumber;
             this.agencyNumber = agencyNumber;
             this.#balance = 0;
-
         }
     }
         get balance(){
@@ -24,24 +23,24 @@ export class BankAccount{
 
         credit(amount){
             this.#balance += amount;
-            console.log(`R$${amount} foi adicionado a sua conta. O crédito atual é R$${this.#balance}.`)
+            console.log(`R$${amount} foi adicionado a sua conta. O saldo atual é R$${this.#balance}.`)
         }
 
         debit(amount){
             this.#balance -= amount;
-            console.log(`R$${amount} foi retirado de sua conta. O crédito atual é R$${this.balance}.`)
+            console.log(`R$${amount} foi retirado de sua conta. O saldo atual é R$${this.balance}.`)
         }
 
         transferTo(anotherAccount, amount){
             if (anotherAccount instanceof BankAccount){
-                if(this.#balance < amount) console.log(`Saldo insuficiente. O valor disponível é de R$${this.#balance}.`)
+                if(this.#balance < amount) console.log(`Saldo insuficiente. O valor disponível é de R$ ${this.#balance}.`)
 
                 if (this.bank != anotherAccount.bank && this.#balance >= amount){
                     this.#balance = anotherAccount.transferTax + amount;
-                    console.log(`Transferência de R$${amount} realizada com sucesso. Taxa de transferência cobrada R$${anotherAccount.transferTax}. Seu saldo atual é R$${this.#balance}.`)
+                    console.log(`Transferência de R$ ${amount} realizada com sucesso. \nA transferência custou R$ ${anotherAccount.transferTax}. \nSeu saldo atual é R$ ${this.#balance}.`)
                 } 
                 else if (this.bank != anotherAccount.bank && this.#balance <= amount) {
-                    console.log(`Saldo insuficiente. O valor disponível é de R$${this.#balance}.`)
+                    console.log(`Saldo insuficiente. O valor disponível é de R$ ${this.#balance}.`)
                 }
                 else{
                     this.#balance -= amount;
@@ -66,14 +65,27 @@ export class BankAccount{
 
 const client1 = new Client('Maria', 123);
 const client2 = new Client('Geice', 321);
+const client3 = new Client('Aparecida', 456);
 const bank1 = new Bank(100, 'LuaBank', 0.01); 
 const bank2 = new Bank(200, 'GeiceBank', 0.02); 
 const bankAccount1 = new BankAccount(client1, bank1, 1111, 2222); 
 const bankAccount2 = new BankAccount(client2, bank2, 2222, 3333); 
-console.log(bankAccount1.balance); 
+const bankAccount3 = new BankAccount(client3, bank2, 2222, 3333); 
+console.log(`Saldo atual: ${bankAccount1.balance}`); 
 bankAccount1.credit(1000); 
+console.log()
 bankAccount1.debit(300);
+console.log()
 bankAccount1.transferTo(bankAccount2, 200); 
+console.log()
+console.log(client3)
+client3.addBank(bank1)
+client3.addBank(bank2)
+console.log()
+console.log(client3)
+console.log(bankAccount3.closeAccount())
+console.log()
+console.log(bankAccount3)
 
 // Transferência de R$${amount} realizada com sucesso. Taxa de transferência cobrada R$${anotherAccount.transferTax}. Seu saldo atual é R$${this.#balance}.
 // anotherAccount.transferTax dá undefined e this.#balance da NaN
