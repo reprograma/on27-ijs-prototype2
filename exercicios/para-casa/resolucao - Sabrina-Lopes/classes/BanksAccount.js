@@ -39,7 +39,7 @@ export class BankAccount {
       if (this._balance >= amount) {
         this._balance -= amount;
         anotherAccount.credit(amount);
-        console.log(`O saldo atual da conta de origem é de R$ ${this._balance}`);
+        console.log(`O saldo atual da conta de origem é de R$ ${this.#balance}`);
       } else {
         console.log("Saldo insuficiente para a transferência.");
       }
@@ -48,7 +48,7 @@ export class BankAccount {
       if (this._balance >= amount + transferTax) {
         this._balance -= (amount + transferTax);
         anotherAccount.credit(amount);
-        console.log(`O saldo atual da conta de origem é de R$ ${this._balance}`);
+        console.log(`O saldo atual da conta de origem é de R$ ${this.#balance}`);
       } else {
         console.log("Saldo insuficiente para a transferência.");
       }
