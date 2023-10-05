@@ -43,7 +43,7 @@ export class BankAccount {
     }
 
     transferTo(anotherAccount, amount) {
-        if (!(bank instanceof BankAccount)) {
+        if (!(anotherAccount instanceof BankAccount)) {
             console.log('Banco inválido!');
             return;
         }

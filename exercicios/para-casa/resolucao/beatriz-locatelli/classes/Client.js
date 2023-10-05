@@ -19,6 +19,7 @@ export class Client {
             throw (`Banco já cadastrado ao cliente ${this.name}`)
         }
         this.banks.push(bank)
+        Bank.createdBanks.find((a) => a.bankCode === bank.bankCode).numberOfClients++;
         console.log(`Banco ${bank.bankCode} adicionado ao(à) cliente ${this.name}`);
         
     }
@@ -34,6 +35,7 @@ export class Client {
           throw ('Banco inválido');
         } else {
           this.banks = this.banks.filter(bankCode => bankCode !== bank);
+          Bank.createdBanks.find((a) => a.bankCode === bank.bankCode).numberOfClients--;
           console.log(`O Banco ${bank.bankCode} foi removido do(a) cliente ${this.name}.`);
         }
       }
