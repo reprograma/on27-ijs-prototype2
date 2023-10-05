@@ -26,7 +26,9 @@ export class Bank {
 }
 
 // criando um novo banco
-const bank1 = new Bank(100, 'LuaBank', 0.01);
+export const bank1 = new Bank(100, 'LuaBank', 0.01);
+export const bank2 = new Bank(200, 'LuaBank', 0.03);
+
 console.log(bank1);
 console.log(Bank.createdBanks);
 console.log(bank1.transferTax); 
