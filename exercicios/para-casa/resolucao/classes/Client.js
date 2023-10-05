@@ -29,7 +29,7 @@ export class Client {
         this.banks.push(bank)
 
         Bank.createdBanks.find((banco) => banco.bankCode === bank.bankCode).numbersClients += 1;
-        console.log(`O Banco ${bank.bankCode} foi adicionado ao cliente ${this.name}`);
+        console.log(`O Banco ${bank.bankName} foi adicionado ao cliente ${this.name}`);
     }
 
     removeBank(bank) {
@@ -48,7 +48,7 @@ export class Client {
         // O splice substitui o array original, adiciona e/ou remove elementos do array []
         this.banks.splice(indexBank, 1);
 
-        Bank.removeClient(bank);
+        Bank.numbersClients -= 1;
         console.log(`Banco ${bank.bankName} foi removido do cliente ${this.name}.`);
     }
 }
