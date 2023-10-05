@@ -1,6 +1,6 @@
 //exercicios feitos pela profa aqui
 import { Bank, bank1, bank2 } from './classes/Bank.js';
-import { BankAccount } from './classes/BankAccount.js';
+import { BankAccount } from './classes/BanksAccount.js';
 import { client1, client2 } from './classes/Client.js';
 
 client1.addBank(bank1); // Banco 100 adicionado à cliente Maria
@@ -46,8 +46,8 @@ const bankAccount3 = new BankAccount(client2, bank2, 5555, 6666);
 }
 */
 
-bankAccount1.creditAmount(1310); // O novo saldo da conta é: R$ 1310
-bankAccount1.debitAmount(300); // O novo saldo da conta é: R$ 1010
+bankAccount1.credit(1310); // O novo saldo da conta é: R$ 1310
+bankAccount1.debit(300); // O novo saldo da conta é: R$ 1010
 
 bankAccount1.transferTo(bankAccount3, 1500);
 // Essa transferência terá uma taxa de 1%, pois se trata de uma transferência entre bancos diferentes.
