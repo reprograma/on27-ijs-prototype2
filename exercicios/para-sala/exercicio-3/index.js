@@ -15,6 +15,9 @@ console.log('passageira 1: ', passageira1);
 console.log('passageira 2: ', passageira2);
 console.log('passageira 3: ', passageira3);
 
+passageira1.changePassword(1234, 7825);
+passageira1.changePassword(1111, 7825);
+
 passageira1.requestDrive(motorista1, 12, 1111);
 passageira1.requestDrive(motorista2, 35, 1111);
 passageira2.requestDrive(motorista1, 24, 2222);

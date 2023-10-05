@@ -1,16 +1,35 @@
+import { Driver } from "./Driver.js";
+
 export class Passenger {
 	name;
 	age;
-	password;
-	amountSpent = 0;
+	#password;
+	#amountSpent = 0;
 
   static passengers = [];
 
 	constructor(name, age, password) {
 		this.name = name;
 		this.age = age;
-		this.password = password;
+		this.#password = password;
     this.constructor.passengers.push({ name: name, age: age });
+	}
+
+	get amountSpent() {
+		return this.#amountSpent;
+	}
+
+	set amountSpent(newAmountSpent) {
+		this.#amountSpent = newAmountSpent;
+	}
+
+	changePassword(oldPassword, newPassword) {
+		if(oldPassword === this.#password) {
+			this.#password = newPassword;
+			console.log('Senha alterada com sucesso.');
+		} else {
+			console.log('A sua senha atual não corresponde.');
+		}
 	}
 
 	requestDrive(driver, amount, password) {
@@ -18,11 +37,11 @@ export class Passenger {
 			console.log('Motorista inválido!');
 			return;
 		}
-		if (password !== this.password) {
+		if (password !== this.#password) {
 			console.log(`${this.name}, sua senha está incorreta!`);
 			return;
 		}
-		this.amountSpent -= amount;
+		this.#amountSpent -= amount;
 		driver.runDrive(amount);
 	}
 
@@ -35,7 +54,7 @@ export class Passenger {
 
     if(totalOfPassengers === 0) return;
 
-		const ageSum = this.passengers.reduce((total, next) => total + next.age, 0);
+		const ageSum = this.passengers.reduce((total, motorista) => total + motorista.age, 0);
 		const ageAverage = (ageSum / totalOfPassengers).toFixed(2);
 		console.log(`A média de idade das passageiras é de: ${ageAverage}`);
 	}
