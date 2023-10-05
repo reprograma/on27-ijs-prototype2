@@ -16,7 +16,7 @@ export class Client {
             console.log(`O cliente ${this.name} já está associado a este banco.`);
         } else {
             this.banks.push(bank);
-            bank.quantidadeClients++;
+            bank.totalClients++;
             console.log(`O cliente ${this.name} foi associado ao banco ${bank.bankName}.`);
         }
     }
@@ -26,7 +26,7 @@ export class Client {
             console.log(`O cliente ${this.name} não está associado a este banco.`);
         } else {
             this.banks = this.banks.filter(existingBank => existingBank !== bank);
-            bank.quantidadeClients--;
+            bank.totalClients--;
             console.log(`O cliente ${this.name} foi desassociado do banco ${bank.bankName}.`);
         }
     }

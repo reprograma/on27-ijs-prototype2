@@ -2,7 +2,7 @@ export class Bank {
     bankCode;
     bankName;
     #transferTax;
-    totalClientes
+    totalClients
 
     static createdBanks = [];
 
@@ -10,8 +10,8 @@ export class Bank {
         this.bankCode = bankCode;
         this.bankName = bankName;
         this.#transferTax = transferTax;
-        this.totalClientes = 0;
-        Bank.createdBanks.push({ bankCode: this.bankCode, totalClientes: this.totalClientes });
+        this.totalClients = 0;
+        Bank.createdBanks.push({ bankCode: this.bankCode, totalClients: this.totalClients });
     }
 
     get transferTax() {

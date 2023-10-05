@@ -9,7 +9,7 @@ export class BankAccount {
     #balance;
 
     constructor(client, bank, accountNumber, agencyNumber) {
-        if (client.banks.includes(bank)) {
+        if (client instanceof Client && bank instanceof Bank) {
             this.client = client;
             this.bank = bank;
             this.accountNumber = accountNumber;
@@ -34,7 +34,7 @@ export class BankAccount {
             this.#balance -= amount;
             console.log(`Novo saldo da conta é: R$ ${this.#balance}`);
         } else {
-            console.log("Saldo insuficiente para realizar a operação financeira.");
+            console.log(`Saldo R$ ${this.#balance} é insuficiente para realizar a operação financeira.`);
         }
     }
 
@@ -60,7 +60,7 @@ export class BankAccount {
             this.agencyNumber = undefined;
             console.log("Conta encerrada!");
         } else {
-            console.log("Não é possível encerrar a conta com saldo diferente de zero!");
+            console.log(`Saldo de R$ ${this.#balance}. Não é possível encerrar a conta com saldo diferente de zero!`);
         }
     }
 }
