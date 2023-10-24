@@ -1,12 +1,10 @@
 export class Client {
-    name;
-    _document;
-
-    banks = [];
+    #document;
 
     constructor(name, document){
         this.name = name;
-        this._document = document;
+        this.#document = document;
+        this.banks = []
     }
 
     addBank(bank){
@@ -32,5 +30,9 @@ export class Client {
 
         bank.numberOfClients--;
         console.log(`O cliente ${this.name} foi desassociado do banco ${bank.bankName}.`);
+    }
+
+    get document(){
+        return this.#document
     }
 }

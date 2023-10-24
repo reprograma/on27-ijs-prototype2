@@ -1,4 +1,6 @@
 class BankAccount {
+    #balance = 0
+    
     constructor(client, bank, accountNumber, agencyNumber) {
       if (!client.banks.includes(bank)) {
         console.log(`A pessoa não é cliente do banco ${bank.bankName}.`);
@@ -9,25 +11,24 @@ class BankAccount {
       this.Bank = bank;
       this.accountNumber = accountNumber;
       this.agencyNumber = agencyNumber;
-      this._balance = 0;
     }
   
     get balance() {
-      return this._balance;
+      return this.#balance;
     }
   
 
     credit(amount) {
-      this._balance += amount;
-      console.log(`Crédito de ${amount} realizado. Novo saldo: ${this._balance}`);
+      this.#balance += amount;
+      console.log(`Crédito de ${amount} realizado. Novo saldo: ${this.#balance}`);
     }
   
     debit(amount) {
-      if (this._balance < amount) {
+      if (this.#balance < amount) {
         console.log("Saldo insuficiente para realizar a operação.");
       } else {
-        this._balance -= amount;
-        console.log(`Débito de ${amount} realizado. Novo saldo: ${this._balance}`);
+        this.#balance -= amount;
+        console.log(`Débito de ${amount} realizado. Novo saldo: ${this.#balance}`);
       }
     }
   
@@ -37,7 +38,7 @@ class BankAccount {
         return;
       }
   
-      if (this._balance < amount) {
+      if (this.#balance < amount) {
         console.log("Saldo insuficiente para realizar a transferência.");
         return;
       }
@@ -48,7 +49,7 @@ class BankAccount {
       this.debit(totalAmount);
       anotherAccount.credit(amount);
   
-      console.log(`Transferência de ${amount} realizada para a conta ${anotherAccount.accountNumber}. Novo saldo: ${this._balance}`);
+      console.log(`Transferência de ${amount} realizada para a conta ${anotherAccount.accountNumber}. Novo saldo: ${this.#balance}`);
     }
   
     closeAccount() {
