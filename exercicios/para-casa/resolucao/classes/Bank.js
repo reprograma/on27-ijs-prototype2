@@ -2,12 +2,13 @@ export class Bank {
     bankCode;
     bankName;
     numberOfClients;
+    #transferTax;
     static createdBanks = [];
 
     constructor(bankCode, bankName, transferTax){
         this.bankCode = bankCode;
         this.bankName = bankName;
-        this._transferTax = transferTax;
+        this.#transferTax = transferTax;
         this.numberOfClients = 0;
         Bank.createdBanks.push({
             bankCode: this.bankCode,
@@ -16,11 +17,11 @@ export class Bank {
     }
 
     get transferTax() {
-        return this._transferTax;
+        return this.#transferTax;
     }
     
     set transferTax(newTransferTax) {
-        this._transferTax = newTransferTax;
+        this.#transferTax = newTransferTax;
     }
 }
 
