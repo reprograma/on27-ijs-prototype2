@@ -2,14 +2,12 @@ class Bank {
     bankCode;
     bankName;
     #transferTax;
-
-    static createdBanks = [];
+    clients = [];
 
     constructor(bankCode,bankName, transferTax ){
         this.bankCode = bankCode;
         this.bankName = bankName;
         this.#transferTax = transferTax;
-        this.clients = 0;
         Bank.createdBanks.push(this);
     }
     
@@ -17,9 +15,17 @@ class Bank {
         console.log(`o código do banco é ${this.bankCode}`);
     }
 
-    addClient() {
-        this.clients++ ;
-        console.log(`A quantidade de clientes é:${this.clients}`);
+    addClient(client) {
+        if (client instanceof Client) {
+            if (this.clients.includes(client)) {
+                console.log(`O cliente já possui conta neste banco`);
+            } else {
+                this.clients.push(client);
+                console.log(`Conta adicionada ao cliente ${client.name}`);
+            }
+        } else {
+            console.log(`Parâmetro inválido. Deve ser uma instância de Client`);
+        }
     }
 
     addBank(client) {
@@ -71,27 +77,29 @@ class BankAccount {
     }
 
     getDebit(amount) {
-        this.#balance -= amount;
-        console.log(`O novo saldo da conta é R$: ${this.#balance}`);
+        if (this.#balance >= amount) {
+            this.#balance -= amount;
+            console.log(`O novo saldo da conta é R$: ${this.#balance}`);
+        } else {
+
+        } console.log(`Saldo insuficiente para realizar o débito`);
     }
 
     transferTo(anotherAccount, amount) {
         if(anotherAccount instanceof BankAccount) {
-            if(this.#balance >= amount){
+            const transferAmount = amount + (amount * this.bank.transfetTax)
+            if(this.#balance >= transferAmount){
                 const transferAmount = this.bank || amount + (amount * this.bank.transferTaxa);
-                if (this.#balance >= transferAmount){
-                    this.#balance -= transferAmount;
+                this.#balance >= transferAmount;
                     anotherAccount.#balance += amount;
                     console.log(`Transferência bem-sucedida. Novo saldo: ${this.#balance}`);
 
                 } else {
 
-                } console.log(`Saldo insuficiente para realizar a transferência.`);
-            }
-            
+                } console.log(`Parâmetro inválido. Dever ser uma instância de BankAccount.`);
+            }  
         }
-    }
-
+    
     closeAccount(){
         if (this.#balance === 0){
             console.log(`Conta encerrada com sucesso!`);
